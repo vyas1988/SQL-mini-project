@@ -53,3 +53,11 @@ jobs:
     port: # optional, default is 3306
     # The errors will be ignore
     ignore_errors: # optional, default is 
+- name: Publish Test Results
+  uses: EnricoMi/publish-unit-test-result-action@v2
+  if: always()
+  with:
+    junit_files: "test-results/junit/**/*.xml"
+    nunit_files: "test-results/nunit/**/*.xml"
+    xunit_files: "test-results/xunit/**/*.xml"
+    trx_files: "test-results/**/*.trx"
