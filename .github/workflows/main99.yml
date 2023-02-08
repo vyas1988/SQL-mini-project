@@ -1,0 +1,32 @@
+name: Validate SQL scripts
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install SQLint
+      run: |
+        sudo apt-get update
+        sudo apt-get install sqlint -y
+
+    - name: Validate SQL scripts
+      run: |
+        find . -name "*.sql" -exec sqlint {} +
+      env:
+        SQLINT_OPTIONS: --color
+
+    - name: Upload results
+      uses: actions/upload-artifact@v2
+      with:
+        name: sqlint-results
+        path: .
