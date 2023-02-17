@@ -1,0 +1,7 @@
+SQL linter: A SQL linter is a tool that analyzes SQL scripts for syntax errors, coding standards violations, and other issues. GitHub Actions can be configured to run a SQL linter on each commit to the code repository, and if the linter finds any issues, it can fail the build and prevent the code from being merged into the main branch.
+
+Unit tests: Unit tests are used to verify the behavior of individual SQL scripts or functions. GitHub Actions can be configured to run unit tests against each SQL script as part of the validation process. If any tests fail, the build can be failed, and the code cannot be merged until the issues are resolved.
+
+Database connection: To run SQL scripts, you need to connect to a database. GitHub Actions can be configured to connect to a database instance and execute SQL scripts as part of the validation process. This can help catch issues that only occur when the script is executed against real data.
+
+Reporting: GitHub Actions can generate reports that provide information about the validation process. For example, the reports can include details about any syntax errors or unit test failures. This can help developers quickly identify and resolve issues.
